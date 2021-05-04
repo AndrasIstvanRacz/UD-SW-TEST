@@ -13,14 +13,20 @@ public class LoadBrowser {
 
     protected static WebDriver driver ;
 
-    static
-    {
+    @Before
+    public void setWebDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        /*ChromeOptions options = new ChromeOptions();
+        //driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);*/
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.navigate().to("https://www.demoblaze.com");
+    }
+
+    @After
+    public void closeWebDriver(){
+        driver.quit();
     }
 
 }
