@@ -19,7 +19,7 @@ jobs:
             - ~/.m2
           key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
       - store_test_results:
-          path: target/cucumber-reports/Cucumber.xml
+          path: target/cucumber-reports
       - store_artifacts:
           path: target/generated-report
 
